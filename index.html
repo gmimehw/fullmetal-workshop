@@ -30,15 +30,16 @@
         body { font-family: 'Inter', sans-serif; background-color: #ffffff; color: #374151; }
         h1, h2, h3, .heading { font-family: 'Montserrat', sans-serif; }
         
-        /* Custom CSS untuk Efek Depth Blur Slide Card */
+        /* Custom CSS untuk Efek Depth Blur & Stacked Slide Card */
         .slider-container {
             display: flex;
             overflow-x: auto;
             scroll-snap-type: x mandatory;
-            gap: 20px;
-            padding: 20px 10px 40px 10px;
-            scrollbar-width: none; /* Hilangkan scrollbar bawaan agar bersih */
+            gap: 25px;
+            padding: 30px 10px 50px 10px;
+            scrollbar-width: none;
             -ms-overflow-style: none;
+            perspective: 1000px;
         }
         .slider-container::-webkit-scrollbar {
             display: none;
@@ -47,17 +48,17 @@
         .slide-card {
             flex: 0 0 320px;
             scroll-snap-align: center;
-            transition: all 0.4s ease-in-out;
+            transition: transform 0.3s ease, filter 0.3s ease, opacity 0.3s ease;
             cursor: grab;
+            will-change: transform, filter, opacity;
         }
         .slide-card:active {
             cursor: grabbing;
         }
 
-        /* Efek blur bertingkat berdasarkan posisi kartu relatif terhadap tengah */
         @media (min-width: 768px) {
             .slide-card {
-                flex: 0 0 360px;
+                flex: 0 0 350px;
             }
         }
     </style>
@@ -197,13 +198,13 @@
         </div>
     </section>
 
-    <!-- Portofolio / Slide Card dengan Efek Depth Blur Dinamis -->
+    <!-- Portofolio / Slide Card Stacked & Soft Blur -->
     <section id="portofolio" class="py-20 bg-white px-4 border-t border-gray-200 overflow-hidden">
         <div class="container mx-auto">
             <div class="text-center mb-12">
                 <h2 class="text-3xl md:text-4xl font-heading font-bold text-gray-900 mb-4">Galeri Proyek</h2>
                 <div class="w-20 h-1 bg-accent mx-auto mb-4"></div>
-                <p class="text-gray-500 text-sm">Geser dengan sentuhan atau mouse untuk melihat proyek</p>
+                <p class="text-gray-500 text-sm">Geser untuk melihat proyek unggulan kami</p>
             </div>
 
             <!-- Slider Container -->
@@ -321,7 +322,7 @@
         </div>
     </section>
 
-    <!-- Script JavaScript untuk Mengatur Efek Blur Bertingkat Secara Real-time saat digeser -->
+    <!-- Script JavaScript untuk Efek Stacked & Soft Blur Real-time -->
     <script>
         const slider = document.getElementById('sliderContainer');
         const cards = slider.querySelectorAll('.slide-card');
@@ -333,22 +334,33 @@
             cards.forEach(card => {
                 const cardRect = card.getBoundingClientRect();
                 const cardCenter = cardRect.left + cardRect.width / 2;
-                const distance = Math.abs(sliderCenter - cardCenter);
+                const distance = sliderCenter - cardCenter; // Jarak positif/negatif dari tengah
+                const absDistance = Math.abs(distance);
                 
-                // Hitung tingkat keburaman (blur) dan skala berdasarkan jarak dari titik tengah layar slider
-                // Kartu di tengah (jarak 0) = blur 0 (sangat tajam & jelas)
-                let blurAmount = distance / 90; 
-                if (blurAmount > 6) blurAmount = 6; // Maksimal tingkat blur untuk kartu paling belakang
+                // Blur sangat tipis dan halus (tidak pekat)
+                let blurAmount = absDistance / 180; 
+                if (blurAmount > 2.5) blurAmount = 2.5; // Maksimal blur tipis saja
 
-                let scale = 1 - (distance / 1200);
-                if (scale < 0.85) scale = 0.85;
+                // Efek susun ke belakang (semakin jauh dari tengah, semakin mengecil dan transparan)
+                let scale = 1 - (absDistance / 1000);
+                if (scale < 0.78) scale = 0.78;
 
-                let opacity = 1 - (distance / 900);
-                if (opacity < 0.3) opacity = 0.3;
+                let opacity = 1 - (absDistance / 900);
+                if (opacity < 0.4) opacity = 0.4;
+
+                // Efek menggeser sedikit ke tengah (stacked effect)
+                let translateX = distance * 0.12; 
 
                 card.style.filter = `blur(${blurAmount}px)`;
-                card.style.transform = `scale(${scale})`;
+                card.style.transform = `translateX(${translateX}px) scale(${scale})`;
                 card.style.opacity = opacity;
+                
+                // Kartu di tengah berada di lapisan terdepan
+                if (absDistance < 100) {
+                    card.style.zIndex = '20';
+                } else {
+                    card.style.zIndex = '10';
+                }
             });
         }
 
@@ -356,7 +368,7 @@
         window.addEventListener('resize', updateCardEffects);
         window.addEventListener('load', updateCardEffects);
         
-        // Fitur tambahan agar bisa didrag pakai mouse di PC
+        // Fitur Drag dengan Mouse di PC
         let isDown = false;
         let startX, scrollLeft;
 
