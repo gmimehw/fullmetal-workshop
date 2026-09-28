@@ -30,12 +30,12 @@
         body { font-family: 'Inter', sans-serif; background-color: #ffffff; color: #374151; }
         h1, h2, h3, .heading { font-family: 'Montserrat', sans-serif; }
         
-        /* Custom CSS untuk Tumpukan Kartu Saling Menutupi (3D Stack) */
+        /* Custom CSS untuk Tumpukan Kartu Lebih Besar & Berjarak */
         .slider-wrapper {
-            position: relative.
-            max-width: 400px;
+            position: relative;
+            max-width: 500px;
             margin: 0 auto;
-            height: 450px;
+            height: 520px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -45,11 +45,11 @@
 
         .slide-card {
             position: absolute;
-            width: 420px;
+            width: 360px; /* Ukuran kartu lebih besar */
             background: #ffffff;
-            border-radius: 12px;
+            border-radius: 14px;
             border: 1px solid #E5E7EB;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
             overflow: hidden;
             transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), filter 0.4s ease, opacity 0.4s ease;
             cursor: grab;
@@ -60,7 +60,7 @@
 
         @media (min-width: 768px) {
             .slide-card {
-                width: 350px;
+                width: 400px; /* Lebar kartu di PC diperbesar */
             }
         }
     </style>
@@ -112,7 +112,6 @@
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                <!-- Card 1 -->
                 <div class="bg-white p-8 rounded-lg border border-gray-200 shadow-sm hover:shadow-md hover:border-accent transition duration-300 group">
                     <div class="w-14 h-14 bg-steel rounded-full flex items-center justify-center mb-6 text-accent group-hover:scale-110 transition duration-300">
                         <i class="fa-solid fa-hammer text-2xl"></i>
@@ -123,7 +122,6 @@
                     </p>
                 </div>
                 
-                <!-- Card 2 -->
                 <div class="bg-white p-8 rounded-lg border border-gray-200 shadow-sm hover:shadow-md hover:border-accent transition duration-300 group">
                     <div class="w-14 h-14 bg-steel rounded-full flex items-center justify-center mb-6 text-accent group-hover:scale-110 transition duration-300">
                         <i class="fa-solid fa-house text-2xl"></i>
@@ -134,7 +132,6 @@
                     </p>
                 </div>
 
-                <!-- Card 3 -->
                 <div class="bg-white p-8 rounded-lg border border-gray-200 shadow-sm hover:shadow-md hover:border-accent transition duration-300 group">
                     <div class="w-14 h-14 bg-steel rounded-full flex items-center justify-center mb-6 text-accent group-hover:scale-110 transition duration-300">
                         <i class="fa-solid fa-shield-halved text-2xl"></i>
@@ -145,7 +142,6 @@
                     </p>
                 </div>
 
-                <!-- Card 4 -->
                 <div class="bg-white p-8 rounded-lg border border-gray-200 shadow-sm hover:shadow-md hover:border-accent transition duration-300 group">
                     <div class="w-14 h-14 bg-steel rounded-full flex items-center justify-center mb-6 text-accent group-hover:scale-110 transition duration-300">
                         <i class="fa-solid fa-industry text-2xl"></i>
@@ -213,118 +209,118 @@
             <div class="slider-wrapper" id="sliderWrapper">
                 <!-- Foto 1 -->
                 <div class="slide-card">
-                    <div class="h-64 bg-gray-200 overflow-hidden relative">
+                    <div class="h-72 bg-gray-200 overflow-hidden relative">
                         <img src="foto1.jpg" alt="Pagar Modern" class="object-cover w-full h-full">
                     </div>
-                    <div class="p-5">
+                    <div class="p-6">
                         <span class="text-accent text-xs font-bold uppercase tracking-wider mb-1 block">Pagar</span>
-                        <h4 class="text-gray-900 font-heading font-bold text-base">Pagar Minimalis Besi</h4>
+                        <h4 class="text-gray-900 font-heading font-bold text-lg">Pagar Minimalis Besi</h4>
                     </div>
                 </div>
 
                 <!-- Foto 2 -->
                 <div class="slide-card">
-                    <div class="h-64 bg-gray-200 overflow-hidden relative">
+                    <div class="h-72 bg-gray-200 overflow-hidden relative">
                         <img src="foto2.jpg" alt="Pagar Klasik" class="object-cover w-full h-full">
                     </div>
-                    <div class="p-5">
+                    <div class="p-6">
                         <span class="text-accent text-xs font-bold uppercase tracking-wider mb-1 block">Pagar</span>
-                        <h4 class="text-gray-900 font-heading font-bold text-base">Pagar Klasik Ornamen</h4>
+                        <h4 class="text-gray-900 font-heading font-bold text-lg">Pagar Klasik Ornamen</h4>
                     </div>
                 </div>
 
                 <!-- Foto 3 -->
                 <div class="slide-card">
-                    <div class="h-64 bg-gray-200 overflow-hidden relative">
+                    <div class="h-72 bg-gray-200 overflow-hidden relative">
                         <img src="foto3.jpg" alt="Pagar Ornamen" class="object-cover w-full h-full">
                     </div>
-                    <div class="p-5">
+                    <div class="p-6">
                         <span class="text-accent text-xs font-bold uppercase tracking-wider mb-1 block">Pagar</span>
-                        <h4 class="text-gray-900 font-heading font-bold text-base">Pagar Ukir Premium</h4>
+                        <h4 class="text-gray-900 font-heading font-bold text-lg">Pagar Ukir Premium</h4>
                     </div>
                 </div>
 
                 <!-- Foto 4 -->
                 <div class="slide-card">
-                    <div class="h-64 bg-gray-200 overflow-hidden relative">
+                    <div class="h-72 bg-gray-200 overflow-hidden relative">
                         <img src="foto4.jpg" alt="Pagar Modern Abu-abu" class="object-cover w-full h-full">
                     </div>
-                    <div class="p-5">
+                    <div class="p-6">
                         <span class="text-accent text-xs font-bold uppercase tracking-wider mb-1 block">Pagar</span>
-                        <h4 class="text-gray-900 font-heading font-bold text-base">Pagar Sliding Modern</h4>
+                        <h4 class="text-gray-900 font-heading font-bold text-lg">Pagar Sliding Modern</h4>
                     </div>
                 </div>
 
                 <!-- Foto 5 -->
                 <div class="slide-card">
-                    <div class="h-64 bg-gray-200 overflow-hidden relative">
+                    <div class="h-72 bg-gray-200 overflow-hidden relative">
                         <img src="foto5.jpg" alt="Konstruksi Baja" class="object-cover w-full h-full">
                     </div>
-                    <div class="p-5">
+                    <div class="p-6">
                         <span class="text-accent text-xs font-bold uppercase tracking-wider mb-1 block">Konstruksi</span>
-                        <h4 class="text-gray-900 font-heading font-bold text-base">Rangka Baja Custom</h4>
+                        <h4 class="text-gray-900 font-heading font-bold text-lg">Rangka Baja Custom</h4>
                     </div>
                 </div>
 
                 <!-- Foto 6 -->
                 <div class="slide-card">
-                    <div class="h-64 bg-gray-200 overflow-hidden relative">
+                    <div class="h-72 bg-gray-200 overflow-hidden relative">
                         <img src="foto6.jpg" alt="Pagar Motif Bintang" class="object-cover w-full h-full">
                     </div>
-                    <div class="p-5">
+                    <div class="p-6">
                         <span class="text-accent text-xs font-bold uppercase tracking-wider mb-1 block">Pagar</span>
-                        <h4 class="text-gray-900 font-heading font-bold text-base">Pagar Motif Bintang</h4>
+                        <h4 class="text-gray-900 font-heading font-bold text-lg">Pagar Motif Bintang</h4>
                     </div>
                 </div>
 
                 <!-- Foto 7 -->
                 <div class="slide-card">
-                    <div class="h-64 bg-gray-200 overflow-hidden relative">
+                    <div class="h-72 bg-gray-200 overflow-hidden relative">
                         <img src="foto7.jpg" alt="Pagar Besi Hollow" class="object-cover w-full h-full">
                     </div>
-                    <div class="p-5">
+                    <div class="p-6">
                         <span class="text-accent text-xs font-bold uppercase tracking-wider mb-1 block">Pagar</span>
-                        <h4 class="text-gray-900 font-heading font-bold text-base">Pagar Besi Hollow</h4>
+                        <h4 class="text-gray-900 font-heading font-bold text-lg">Pagar Besi Hollow</h4>
                     </div>
                 </div>
 
                 <!-- Foto 8 -->
                 <div class="slide-card">
-                    <div class="h-64 bg-gray-200 overflow-hidden relative">
+                    <div class="h-72 bg-gray-200 overflow-hidden relative">
                         <img src="https://upload.wikimedia.org/wikipedia/commons/8/8a/Albert_Eyth%2C_Iron_Fence%2C_c._1937%2C_NGA_23856.jpg" alt="Pagar Besi Minimalis" class="object-cover w-full h-full">
                     </div>
-                    <div class="p-5">
+                    <div class="p-6">
                         <span class="text-accent text-xs font-bold uppercase tracking-wider mb-1 block">Pagar</span>
-                        <h4 class="text-gray-900 font-heading font-bold text-base">Pagar Besi Minimalis</h4>
+                        <h4 class="text-gray-900 font-heading font-bold text-lg">Pagar Besi Minimalis</h4>
                     </div>
                 </div>
 
                 <!-- Foto 9 -->
                 <div class="slide-card">
-                    <div class="h-64 bg-gray-200 overflow-hidden relative">
+                    <div class="h-72 bg-gray-200 overflow-hidden relative">
                         <img src="https://upload.wikimedia.org/wikipedia/commons/d/d5/Florence_Huston%2C_Iron_Fence%2C_c._1936%2C_NGA_23776.jpg" alt="Pagar Besi Geometris" class="object-cover w-full h-full">
                     </div>
-                    <div class="p-5">
+                    <div class="p-6">
                         <span class="text-accent text-xs font-bold uppercase tracking-wider mb-1 block">Pagar</span>
-                        <h4 class="text-gray-900 font-heading font-bold text-base">Pagar Besi Geometris</h4>
+                        <h4 class="text-gray-900 font-heading font-bold text-lg">Pagar Besi Geometris</h4>
                     </div>
                 </div>
 
                 <!-- Foto 10 -->
                 <div class="slide-card">
-                    <div class="h-64 bg-gray-200 overflow-hidden relative">
+                    <div class="h-72 bg-gray-200 overflow-hidden relative">
                         <img src="https://upload.wikimedia.org/wikipedia/commons/8/8e/Florence_Huston%2C_Iron_Fence%2C_c._1936%2C_NGA_23978.jpg" alt="Pagar Besi Industrial" class="object-cover w-full h-full">
                     </div>
-                    <div class="p-5">
+                    <div class="p-6">
                         <span class="text-accent text-xs font-bold uppercase tracking-wider mb-1 block">Pagar</span>
-                        <h4 class="text-gray-900 font-heading font-bold text-base">Pagar Besi Industrial</h4>
+                        <h4 class="text-gray-900 font-heading font-bold text-lg">Pagar Besi Industrial</h4>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Script JavaScript untuk Susunan Saling Menutupi & Blur Halus -->
+    <!-- Script JavaScript untuk Jarak Tumpukan Lebih Renggang -->
     <script>
         const wrapper = document.getElementById('sliderWrapper');
         const cards = Array.from(wrapper.querySelectorAll('.slide-card'));
@@ -333,25 +329,24 @@
         function updateStack() {
             const total = cards.length;
             cards.forEach((card, i) => {
-                // Hitung selisih posisi relatif terhadap kartu aktif di tengah
                 let offset = (i - currentIndex + total) % total;
                 if (offset > total / 2) {
                     offset -= total;
                 }
 
                 if (offset === 0) {
-                    // Kartu di depan (paling jelas & fokus)
+                    // Kartu Utama di Depan
                     card.style.transform = 'translateX(0px) scale(1)';
                     card.style.filter = 'blur(0px)';
                     card.style.opacity = '1';
                     card.style.zIndex = '30';
                     card.style.pointerEvents = 'auto';
                 } else if (offset > 0 && offset <= 2) {
-                    // Kartu di sebelah kanan (bertumpuk ke belakang)
-                    let xPos = offset * 95; // Jarak tumpukan
-                    let scale = 1 - (offset * 0.08);
-                    let blurVal = offset * 1.5; // Blur tipis bertingkat
-                    let opacity = 1 - (offset * 0.3);
+                    // Kartu di Kanan (Jarak diperbesar jadi 130px agar lebih renggang)
+                    let xPos = offset * 130; 
+                    let scale = 1 - (offset * 0.1);
+                    let blurVal = offset * 1.5;
+                    let opacity = 1 - (offset * 0.35);
 
                     card.style.transform = `translateX(${xPos}px) scale(${scale})`;
                     card.style.filter = `blur(${blurVal}px)`;
@@ -359,11 +354,11 @@
                     card.style.zIndex = 30 - offset;
                     card.style.pointerEvents = 'none';
                 } else if (offset < 0 && offset >= -2) {
-                    // Kartu di sebelah kiri (bertumpuk ke belakang)
-                    let xPos = offset * 70;
-                    let scale = 1 + (offset * 0.08);
+                    // Kartu di Kiri (Jarak diperbesar jadi 130px agar lebih renggang)
+                    let xPos = offset * 130;
+                    let scale = 1 + (offset * 0.1);
                     let blurVal = Math.abs(offset) * 1.5;
-                    let opacity = 1 - (Math.abs(offset) * 0.3);
+                    let opacity = 1 - (Math.abs(offset) * 0.35);
 
                     card.style.transform = `translateX(${xPos}px) scale(${scale})`;
                     card.style.filter = `blur(${blurVal}px)`;
@@ -371,8 +366,7 @@
                     card.style.zIndex = 30 + offset;
                     card.style.pointerEvents = 'none';
                 } else {
-                    // Kartu lainnya yang jauh tersembunyi
-                    card.style.transform = 'translateX(300px) scale(0.7)';
+                    card.style.transform = 'translateX(400px) scale(0.6)';
                     card.style.filter = 'blur(4px)';
                     card.style.opacity = '0';
                     card.style.zIndex = '0';
@@ -381,7 +375,6 @@
             });
         }
 
-        // Interaksi Geser / Swipe / Drag Mouse
         let startX = 0;
         let isDragging = false;
 
@@ -396,10 +389,8 @@
             const diff = e.clientX - startX;
             if (Math.abs(diff) > 50) {
                 if (diff < 0) {
-                    // Geser ke kiri (Next)
                     currentIndex = (currentIndex + 1) % cards.length;
                 } else {
-                    // Geser ke kanan (Prev)
                     currentIndex = (currentIndex - 1 + cards.length) % cards.length;
                 }
                 isDragging = false;
@@ -411,7 +402,6 @@
             isDragging = false;
         });
 
-        // Jalankan saat pertama kali dimuat
         updateStack();
     </script>
 
