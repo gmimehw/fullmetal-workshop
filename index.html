@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FULLMETAL WORKSHOP - Fabrikasi Logam Premium</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        dark: '#1F2937', 
+                        steel: '#F3F4F6',
+                        accent: '#EA580C',
+                        copper: '#B87333',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Montserrat', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
+    <!-- FontAwesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #ffffff; color: #374151; }
+        h1, h2, h3, .heading { font-family: 'Montserrat', sans-serif; }
+        
+        /* Custom CSS untuk Slide Card / Horizontal Slider */
+        .slider-container {
+            display: flex;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            gap: 20px;
+            padding: 10px 4px 20px 4px;
+            scrollbar-width: thin;
+            scrollbar-color: #EA580C #E2E8F0;
+        }
+        .slider-container::-webkit-scrollbar {
+            height: 8px;
+        }
+        .slider-container::-webkit-scrollbar-track {
+            background: #E2E8F0;
+            border-radius: 4px;
+        }
+        .slider-container::-webkit-scrollbar-thumb {
+            background: #EA580C;
+            border-radius: 4px;
+        }
+        .slide-card {
+            flex: 0 0 300px;
+            scroll-snap-align: start;
+        }
+        @media (min-width: 768px) {
+            .slide-card {
+                flex: 0 0 340px;
+            }
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-accent selection:text-white pb-20 md:pb-0">
+
+    <!-- Header/Nav -->
+    <header class="fixed w-full top-0 bg-white/90 backdrop-blur-md z-50 border-b border-gray-200 shadow-sm">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <div class="text-xl font-heading font-bold tracking-wider text-gray-900">
+                <i class="fa-solid fa-industry text-accent mr-2" aria-hidden="true"></i>FULLMETAL<span class="text-accent">.</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden px-4 bg-gray-900">
+        <div class="absolute inset-0 z-0 opacity-100 bg-[url('https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80')] bg-cover bg-center"></div>
+        <div class="absolute inset-0 bg-gradient-to-r from-gray-900/90 via-gray-900/40 to-transparent z-0"></div>
+        <div class="absolute inset-0 bg-black/20 z-0"></div>
+        
+        <div class="container mx-auto relative z-10 text-center md:text-left md:flex md:items-center">
+            <div class="md:w-2/3">
+                <span class="uppercase tracking-widest text-accent text-sm font-bold mb-4 block drop-shadow-md">Premium Metalworks</span>
+                <h1 class="text-4xl md:text-6xl font-heading font-extrabold text-white leading-tight mb-6 drop-shadow-lg">
+                    Solusi Fabrikasi Logam & Konstruksi Premium
+                </h1>
+                <p class="text-gray-200 text-lg md:text-xl mb-10 max-w-2xl mx-auto md:mx-0 drop-shadow-md font-medium">
+                    Menghadirkan karya seni dari baja dengan presisi tinggi, kekuatan maksimal, dan desain elegan industrial untuk kebutuhan Anda.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+                    <a href="#portofolio" class="bg-accent hover:bg-orange-700 text-white font-medium py-3 px-8 rounded-md transition duration-300 text-center shadow-lg shadow-accent/30">
+                        Lihat Portofolio
+                    </a>
+                    <a href="#kontak" class="bg-black/40 border border-gray-300 hover:border-white hover:bg-black/60 text-white font-medium py-3 px-8 rounded-md transition duration-300 text-center backdrop-blur-sm">
+                        Konsultasi Gratis
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Layanan Kami -->
+    <section id="layanan" class="py-20 bg-white px-4 border-t border-gray-200">
+        <div class="container mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-heading font-bold text-gray-900 mb-4">Layanan Unggulan</h2>
+                <div class="w-20 h-1 bg-accent mx-auto"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Card 1 -->
+                <div class="bg-white p-8 rounded-lg border border-gray-200 shadow-sm hover:shadow-md hover:border-accent transition duration-300 group">
+                    <div class="w-14 h-14 bg-steel rounded-full flex items-center justify-center mb-6 text-accent group-hover:scale-110 transition duration-300">
+                        <i class="fa-solid fa-hammer text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-heading font-bold text-gray-900 mb-3">Custom Fabrication</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        Desain dan pembuatan part metal khusus sesuai spesifikasi dan kebutuhan eksklusif Anda.
+                    </p>
+                </div>
+                
+                <!-- Card 2 -->
+                <div class="bg-white p-8 rounded-lg border border-gray-200 shadow-sm hover:shadow-md hover:border-accent transition duration-300 group">
+                    <div class="w-14 h-14 bg-steel rounded-full flex items-center justify-center mb-6 text-accent group-hover:scale-110 transition duration-300">
+                        <i class="fa-solid fa-house text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-heading font-bold text-gray-900 mb-3">Kanopi Minimalis</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        Kanopi elegan dengan material premium yang tahan lama untuk melindungi dan memperindah hunian.
+                    </p>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="bg-white p-8 rounded-lg border border-gray-200 shadow-sm hover:shadow-md hover:border-accent transition duration-300 group">
+                    <div class="w-14 h-14 bg-steel rounded-full flex items-center justify-center mb-6 text-accent group-hover:scale-110 transition duration-300">
+                        <i class="fa-solid fa-shield-halved text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-heading font-bold text-gray-900 mb-3">Pagar Modern</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        Sistem pagar dengan keamanan tinggi yang dipadukan dengan desain estetika industrial masa kini.
+                    </p>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="bg-white p-8 rounded-lg border border-gray-200 shadow-sm hover:shadow-md hover:border-accent transition duration-300 group">
+                    <div class="w-14 h-14 bg-steel rounded-full flex items-center justify-center mb-6 text-accent group-hover:scale-110 transition duration-300">
+                        <i class="fa-solid fa-industry text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-heading font-bold text-gray-900 mb-3">Konstruksi Baja</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        Struktur baja ringan hingga berat untuk keperluan komersial, gudang, maupun residensial.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Alur Kerja -->
+    <section class="py-20 px-4 relative overflow-hidden bg-gray-900">
+        <div class="absolute inset-0 z-0 opacity-100 bg-[url('https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80')] bg-cover bg-center"></div>
+        <div class="absolute inset-0 bg-gray-900/20 z-0"></div>
+
+        <div class="container mx-auto relative z-10">
+            <div class="text-center mb-6">
+                <h2 class="text-3xl md:text-4xl font-heading font-bold text-white mb-4">Proses Kerja</h2>
+                <div class="flex items-center justify-center gap-2 mb-2">
+                    <span class="w-3 h-3 rounded-full bg-accent inline-block"></span>
+                    <span class="w-3 h-3 rounded-full bg-green-400 inline-block"></span>
+                    <span class="w-3 h-3 rounded-full bg-purple-500 inline-block"></span>
+                    <span class="w-3 h-3 rounded-full bg-blue-400 inline-block"></span>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+                <div class="bg-gray-800/80 backdrop-blur-sm border border-gray-700 rounded-xl p-8 flex flex-col items-center text-center hover:border-accent hover:bg-gray-700/80 transition duration-300 group">
+                    <div class="w-20 h-20 flex items-center justify-center mb-5 text-white group-hover:text-accent transition duration-300">
+                        <i class="fa-solid fa-gears text-6xl"></i>
+                    </div>
+                    <h3 class="text-lg font-heading font-bold text-white">Konsultasi<br>&amp; Perencanaan</h3>
+                </div>
+
+                <div class="bg-gray-800/80 backdrop-blur-sm border border-gray-700 rounded-xl p-8 flex flex-col items-center text-center hover:border-accent hover:bg-gray-700/80 transition duration-300 group">
+                    <div class="w-20 h-20 flex items-center justify-center mb-5 text-white group-hover:text-accent transition duration-300">
+                        <i class="fa-solid fa-fire-flame-curved text-6xl"></i>
+                    </div>
+                    <h3 class="text-lg font-heading font-bold text-white">Pengerjaan</h3>
+                </div>
+
+                <div class="bg-gray-800/80 backdrop-blur-sm border border-gray-700 rounded-xl p-8 flex flex-col items-center text-center hover:border-accent hover:bg-gray-700/80 transition duration-300 group">
+                    <div class="w-20 h-20 flex items-center justify-center mb-5 text-white group-hover:text-accent transition duration-300">
+                        <i class="fa-solid fa-hand-holding-hand text-6xl"></i>
+                    </div>
+                    <h3 class="text-lg font-heading font-bold text-white">Finishing<br>Penyelesian</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portofolio / Slide Card Galeri -->
+    <section id="portofolio" class="py-20 bg-white px-4 border-t border-gray-200">
+        <div class="container mx-auto">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-heading font-bold text-gray-900 mb-4">Galeri Proyek</h2>
+                <div class="w-20 h-1 bg-accent mx-auto mb-4"></div>
+                <p class="text-gray-500 text-sm">Geser ke samping untuk melihat lebih banyak proyek</p>
+            </div>
+
+            <!-- Slider Container (Bisa di-swipe di HP / di-drag dengan mouse di PC) -->
+            <div class="slider-container">
+                <!-- Foto 1 -->
+                <div class="slide-card bg-white rounded-xl border border-gray-200 overflow-hidden shadow-sm hover:shadow-md transition duration-300">
+                    <div class="h-64 bg-gray-200 overflow-hidden relative group">
+                        <img src="foto1.jpg" alt="Pagar Modern" class="object-cover w-full h-full group-hover:scale-110 transition duration-500">
+                    </div>
+                    <div class="p-5">
+                        <span class="text-accent text-xs font-bold uppercase tracking-wider mb-1 block">Pagar</span>
+                        <h4 class="text-gray-900 font-heading font-bold text-base">Pagar Minimalis Besi</h4>
+                    </div>
+                </div>
+
+                <!-- Foto 2 -->
+                <div class="slide-card bg-white rounded-xl border border-gray-200 overflow-hidden shadow-sm hover:shadow-md transition duration-300">
+                    <div class="h-64 bg-gray-200 overflow-hidden relative group">
+                        <img src="foto2.jpg" alt="Pagar Klasik" class="object-cover w-full h-full group-hover:scale-110 transition duration-500">
+                    </div>
+                    <div class="p-5">
+                        <span class="text-accent text-xs font-bold uppercase tracking-wider mb-1 block">Pagar</span>
+                        <h4 class="text-gray-900 font-heading font-bold text-base">Pagar Klasik Ornamen</h4>
+                    </div>
+                </div>
+
+                <!-- Foto 3 -->
+                <div class="slide-card bg-white rounded-xl border border-gray-200 overflow-hidden shadow-sm hover:shadow-md transition duration-300">
+                    <div class="h-64 bg-gray-200 overflow-hidden relative group">
+                        <img src="foto3.jpg" alt="Pagar Ornamen" class="object-cover w-full h-full group-hover:scale-110 transition duration-500">
+                    </div>
+                    <div class="p-5">
+                        <span class="text-accent text-xs font-bold uppercase tracking-wider mb-1 block">Pagar</span>
+                        <h4 class="text-gray-900 font-heading font-bold text-base">Pagar Ukir Premium</h4>
+                    </div>
+                </div>
+
+                <!-- Foto 4 -->
+                <div class="slide-card bg-white rounded-xl border border-gray-200 overflow-hidden shadow-sm hover:shadow-md transition duration-300">
+                    <div class="h-64 bg-gray-200 overflow-hidden relative group">
+                        <img src="foto4.jpg" alt="Pagar Modern Abu-abu" class="object-cover w-full h-full group-hover:scale-110 transition duration-500">
+                    </div>
+                    <div class="p-5">
+                        <span class="text-accent text-xs font-bold uppercase tracking-wider mb-1 block">Pagar</span>
+                        <h4 class="text-gray-900 font-heading font-bold text-base">Pagar Sliding Modern</h4>
+                    </div>
+                </div>
+
+                <!-- Foto 5 -->
+                <div class="slide-card bg-white rounded-xl border border-gray-200 overflow-hidden shadow-sm hover:shadow-md transition duration-300">
+                    <div class="h-64 bg-gray-200 overflow-hidden relative group">
+                        <img src="foto5.jpg" alt="Konstruksi Baja" class="object-cover w-full h-full group-hover:scale-110 transition duration-500">
+                    </div>
+                    <div class="p-5">
+                        <span class="text-accent text-xs font-bold uppercase tracking-wider mb-1 block">Konstruksi</span>
+                        <h4 class="text-gray-900 font-heading font-bold text-base">Rangka Baja Custom</h4>
+                    </div>
+                </div>
+
+                <!-- Foto 6 -->
+                <div class="slide-card bg-white rounded-xl border border-gray-200 overflow-hidden shadow-sm hover:shadow-md transition duration-300">
+                    <div class="h-64 bg-gray-200 overflow-hidden relative group">
+                        <img src="foto6.jpg" alt="Pagar Ornamen Bintang" class="object-cover w-full h-full group-hover:scale-110 transition duration-500">
+                    </div>
+                    <div class="p-5">
+                        <span class="text-accent text-xs font-bold uppercase tracking-wider mb-1 block">Pagar</span>
+                        <h4 class="text-gray-900 font-heading font-bold text-base">Pagar Motif Bintang</h4>
+                    </div>
+                </div>
+
+                <!-- Foto 7 -->
+                <div class="slide-card bg-white rounded-xl border border-gray-200 overflow-hidden shadow-sm hover:shadow-md transition duration-300">
+                    <div class="h-64 bg-gray-200 overflow-hidden relative group">
+                        <img src="foto7.jpg" alt="Pagar Besi" class="object-cover w-full h-full group-hover:scale-110 transition duration-500">
+                    </div>
+                    <div class="p-5">
+                        <span class="text-accent text-xs font-bold uppercase tracking-wider mb-1 block">Pagar</span>
+                        <h4 class="text-gray-900 font-heading font-bold text-base">Pagar Besi Hollow</h4>
+                    </div>
+                </div>
+
+                <!-- Foto 8 -->
+                <div class="slide-card bg-white rounded-xl border border-gray-200 overflow-hidden shadow-sm hover:shadow-md transition duration-300">
+                    <div class="h-64 bg-gray-200 overflow-hidden relative group">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/8/8a/Albert_Eyth%2C_Iron_Fence%2C_c._1937%2C_NGA_23856.jpg" alt="Pagar Besi Minimalis" class="object-cover w-full h-full group-hover:scale-110 transition duration-500">
+                    </div>
+                    <div class="p-5">
+                        <span class="text-accent text-xs font-bold uppercase tracking-wider mb-1 block">Pagar</span>
+                        <h4 class="text-gray-900 font-heading font-bold text-base">Pagar Besi Minimalis</h4>
+                    </div>
+                </div>
+
+                <!-- Foto 9 -->
+                <div class="slide-card bg-white rounded-xl border border-gray-200 overflow-hidden shadow-sm hover:shadow-md transition duration-300">
+                    <div class="h-64 bg-gray-200 overflow-hidden relative group">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/d/d5/Florence_Huston%2C_Iron_Fence%2C_c._1936%2C_NGA_23776.jpg" alt="Pagar Besi Geometris" class="object-cover w-full h-full group-hover:scale-110 transition duration-500">
+                    </div>
+                    <div class="p-5">
+                        <span class="text-accent text-xs font-bold uppercase tracking-wider mb-1 block">Pagar</span>
+                        <h4 class="text-gray-900 font-heading font-bold text-base">Pagar Besi Geometris</h4>
+                    </div>
+                </div>
+
+                <!-- Foto 10 -->
+                <div class="slide-card bg-white rounded-xl border border-gray-200 overflow-hidden shadow-sm hover:shadow-md transition duration-300">
+                    <div class="h-64 bg-gray-200 overflow-hidden relative group">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/8/8e/Florence_Huston%2C_Iron_Fence%2C_c._1936%2C_NGA_23978.jpg" alt="Pagar Besi Industrial" class="object-cover w-full h-full group-hover:scale-110 transition duration-500">
+                    </div>
+                    <div class="p-5">
+                        <span class="text-accent text-xs font-bold uppercase tracking-wider mb-1 block">Pagar</span>
+                        <h4 class="text-gray-900 font-heading font-bold text-base">Pagar Besi Industrial</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Brosur / CTA Section -->
+    <section class="py-20 bg-gray-50 px-4 border-t border-gray-200">
+        <div class="container mx-auto max-w-5xl">
+            <div class="flex flex-col lg:flex-row items-center gap-12">
+                <div class="lg:w-1/2 text-center lg:text-left">
+                    <h2 class="text-3xl font-heading font-bold text-gray-900 mb-6">Informasi & Keunggulan Kami</h2>
+                    <p class="text-gray-600 mb-6 leading-relaxed">
+                        Mengapa memilih kami? FULLMETAL didukung oleh tenaga ahli berpengalaman, menggunakan material kualitas terbaik, dan berkomitmen pada pengerjaan yang tepat waktu. Simpan brosur digital kami untuk referensi Anda atau bagikan kepada rekan yang membutuhkan.
+                    </p>
+                    <a href="brosur.jpg" download class="inline-flex items-center justify-center gap-2 bg-gray-900 hover:bg-accent text-white font-medium py-3 px-6 rounded transition duration-300">
+                        <i class="fa-solid fa-download"></i> Unduh Brosur Digital
+                    </a>
+                </div>
+                <div class="lg:w-1/2">
+                    <img src="brosur.jpg" alt="Brosur Full Metal Workshop" class="w-full h-auto rounded-lg shadow-2xl border border-gray-200 hover:scale-105 transition duration-500">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer & Map -->
+    <footer id="kontak" class="bg-gray-900 border-t border-gray-800 pt-16 pb-8 px-4">
+        <div class="container mx-auto">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-12">
+                <div>
+                    <div class="text-2xl font-heading font-bold text-white mb-6">
+                        <i class="fa-solid fa-industry text-accent mr-2" aria-hidden="true"></i>FULLMETAL<span class="text-accent">.</span>
+                    </div>
+                    <p class="text-gray-400 text-sm leading-relaxed mb-8 max-w-md">
+                        Spesialis fabrikasi logam dan pengelasan premium untuk kebutuhan residensial dan komersial dengan standar kualitas tinggi.
+                    </p>
+                    <ul class="text-gray-400 text-sm space-y-4">
+                        <li class="flex items-start">
+                            <div class="mt-1 w-6 text-accent"><i class="fa-solid fa-location-dot"></i></div>
+                            <span>Jl. Kyai Modjo, Kel. Wulauan, Kec. Tondano Utara, Minahasa, Sulawesi Utara</span>
+                        </li>
+                        <li class="flex items-center">
+                            <div class="w-6 text-accent"><i class="fa-solid fa-phone"></i></div>
+                            <span>0852-9874-7362</span>
+                        </li>
+                        <li class="flex items-center">
+                            <div class="w-6 text-accent"><i class="fa-solid fa-envelope"></i></div>
+                            <span>frannykuhon25@gmail.com</span>
+                        </li>
+                        <li class="flex items-center">
+                            <div class="w-6 text-accent"><i class="fa-brands fa-facebook"></i></div>
+                            <span>franny kuhon</span>
+                        </li>
+                        <li class="flex items-center">
+                            <div class="w-6 text-accent"><i class="fa-brands fa-instagram"></i></div>
+                            <span>@frannykuhon</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="rounded-lg overflow-hidden h-64 bg-gray-800 relative border border-gray-700 shadow-md">
+                    <!-- Google Maps Iframe - Kelurahan Wulauan, Minahasa -->
+                    <iframe 
+                        src="https://maps.google.com/maps?q=1.3044,124.9088&t=&z=16&ie=UTF8&iwloc=&output=embed" 
+                        width="100%" 
+                        height="100%" 
+                        style="border:0;" 
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 pt-8 text-center text-gray-500 text-sm flex flex-col md:flex-row justify-between items-center gap-4">
+                <p>&copy; 2026 FULLMETAL WORKSHOP. All rights reserved.</p>
+                <div class="flex gap-4 text-gray-400">
+                    <a href="https://instagram.com/frannykuhon" target="_blank" class="hover:text-accent transition"><i class="fa-brands fa-instagram text-xl"></i></a>
+                    <a href="https://facebook.com/frannykuhon" target="_blank" class="hover:text-accent transition"><i class="fa-brands fa-facebook text-xl"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp CTA -->
+    <a href="https://wa.me/6285298747362" target="_blank" rel="noopener noreferrer" class="fixed bottom-6 right-6 w-14 h-14 bg-[#25D366] text-white rounded-full flex items-center justify-center text-3xl shadow-lg shadow-black/20 hover:bg-[#128C7E] hover:-translate-y-1 transition-all duration-300 z-50">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+</body>
+</html>
