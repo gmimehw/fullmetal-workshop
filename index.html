@@ -45,7 +45,7 @@
 
         .slide-card {
             position: absolute;
-            width: 320px;
+            width: 380px;
             background: #ffffff;
             border-radius: 12px;
             border: 1px solid #E5E7EB;
@@ -348,7 +348,7 @@
                     card.style.pointerEvents = 'auto';
                 } else if (offset > 0 && offset <= 2) {
                     // Kartu di sebelah kanan (bertumpuk ke belakang)
-                    let xPos = offset * 70; // Jarak tumpukan
+                    let xPos = offset * 85; // Jarak tumpukan
                     let scale = 1 - (offset * 0.08);
                     let blurVal = offset * 1.5; // Blur tipis bertingkat
                     let opacity = 1 - (offset * 0.3);
