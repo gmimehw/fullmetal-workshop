@@ -30,34 +30,34 @@
         body { font-family: 'Inter', sans-serif; background-color: #ffffff; color: #374151; }
         h1, h2, h3, .heading { font-family: 'Montserrat', sans-serif; }
         
-        /* Custom CSS untuk Slide Card / Horizontal Slider */
+        /* Custom CSS untuk Efek Depth Blur Slide Card */
         .slider-container {
             display: flex;
             overflow-x: auto;
             scroll-snap-type: x mandatory;
             gap: 20px;
-            padding: 10px 4px 20px 4px;
-            scrollbar-width: thin;
-            scrollbar-color: #EA580C #E2E8F0;
+            padding: 20px 10px 40px 10px;
+            scrollbar-width: none; /* Hilangkan scrollbar bawaan agar bersih */
+            -ms-overflow-style: none;
         }
         .slider-container::-webkit-scrollbar {
-            height: 8px;
+            display: none;
         }
-        .slider-container::-webkit-scrollbar-track {
-            background: #E2E8F0;
-            border-radius: 4px;
-        }
-        .slider-container::-webkit-scrollbar-thumb {
-            background: #EA580C;
-            border-radius: 4px;
-        }
+
         .slide-card {
-            flex: 0 0 300px;
-            scroll-snap-align: start;
+            flex: 0 0 320px;
+            scroll-snap-align: center;
+            transition: all 0.4s ease-in-out;
+            cursor: grab;
         }
+        .slide-card:active {
+            cursor: grabbing;
+        }
+
+        /* Efek blur bertingkat berdasarkan posisi kartu relatif terhadap tengah */
         @media (min-width: 768px) {
             .slide-card {
-                flex: 0 0 340px;
+                flex: 0 0 360px;
             }
         }
     </style>
@@ -197,21 +197,21 @@
         </div>
     </section>
 
-    <!-- Portofolio / Slide Card Galeri -->
-    <section id="portofolio" class="py-20 bg-white px-4 border-t border-gray-200">
+    <!-- Portofolio / Slide Card dengan Efek Depth Blur Dinamis -->
+    <section id="portofolio" class="py-20 bg-white px-4 border-t border-gray-200 overflow-hidden">
         <div class="container mx-auto">
             <div class="text-center mb-12">
                 <h2 class="text-3xl md:text-4xl font-heading font-bold text-gray-900 mb-4">Galeri Proyek</h2>
                 <div class="w-20 h-1 bg-accent mx-auto mb-4"></div>
-                <p class="text-gray-500 text-sm">Geser ke samping untuk melihat lebih banyak proyek</p>
+                <p class="text-gray-500 text-sm">Geser dengan sentuhan atau mouse untuk melihat proyek</p>
             </div>
 
-            <!-- Slider Container (Bisa di-swipe di HP / di-drag dengan mouse di PC) -->
-            <div class="slider-container">
+            <!-- Slider Container -->
+            <div class="slider-container" id="sliderContainer">
                 <!-- Foto 1 -->
-                <div class="slide-card bg-white rounded-xl border border-gray-200 overflow-hidden shadow-sm hover:shadow-md transition duration-300">
-                    <div class="h-64 bg-gray-200 overflow-hidden relative group">
-                        <img src="foto1.jpg" alt="Pagar Modern" class="object-cover w-full h-full group-hover:scale-110 transition duration-500">
+                <div class="slide-card bg-white rounded-xl border border-gray-200 overflow-hidden shadow-md">
+                    <div class="h-64 bg-gray-200 overflow-hidden relative">
+                        <img src="foto1.jpg" alt="Pagar Modern" class="object-cover w-full h-full">
                     </div>
                     <div class="p-5">
                         <span class="text-accent text-xs font-bold uppercase tracking-wider mb-1 block">Pagar</span>
@@ -220,9 +220,9 @@
                 </div>
 
                 <!-- Foto 2 -->
-                <div class="slide-card bg-white rounded-xl border border-gray-200 overflow-hidden shadow-sm hover:shadow-md transition duration-300">
-                    <div class="h-64 bg-gray-200 overflow-hidden relative group">
-                        <img src="foto2.jpg" alt="Pagar Klasik" class="object-cover w-full h-full group-hover:scale-110 transition duration-500">
+                <div class="slide-card bg-white rounded-xl border border-gray-200 overflow-hidden shadow-md">
+                    <div class="h-64 bg-gray-200 overflow-hidden relative">
+                        <img src="foto2.jpg" alt="Pagar Klasik" class="object-cover w-full h-full">
                     </div>
                     <div class="p-5">
                         <span class="text-accent text-xs font-bold uppercase tracking-wider mb-1 block">Pagar</span>
@@ -231,9 +231,9 @@
                 </div>
 
                 <!-- Foto 3 -->
-                <div class="slide-card bg-white rounded-xl border border-gray-200 overflow-hidden shadow-sm hover:shadow-md transition duration-300">
-                    <div class="h-64 bg-gray-200 overflow-hidden relative group">
-                        <img src="foto3.jpg" alt="Pagar Ornamen" class="object-cover w-full h-full group-hover:scale-110 transition duration-500">
+                <div class="slide-card bg-white rounded-xl border border-gray-200 overflow-hidden shadow-md">
+                    <div class="h-64 bg-gray-200 overflow-hidden relative">
+                        <img src="foto3.jpg" alt="Pagar Ornamen" class="object-cover w-full h-full">
                     </div>
                     <div class="p-5">
                         <span class="text-accent text-xs font-bold uppercase tracking-wider mb-1 block">Pagar</span>
@@ -242,9 +242,9 @@
                 </div>
 
                 <!-- Foto 4 -->
-                <div class="slide-card bg-white rounded-xl border border-gray-200 overflow-hidden shadow-sm hover:shadow-md transition duration-300">
-                    <div class="h-64 bg-gray-200 overflow-hidden relative group">
-                        <img src="foto4.jpg" alt="Pagar Modern Abu-abu" class="object-cover w-full h-full group-hover:scale-110 transition duration-500">
+                <div class="slide-card bg-white rounded-xl border border-gray-200 overflow-hidden shadow-md">
+                    <div class="h-64 bg-gray-200 overflow-hidden relative">
+                        <img src="foto4.jpg" alt="Pagar Modern Abu-abu" class="object-cover w-full h-full">
                     </div>
                     <div class="p-5">
                         <span class="text-accent text-xs font-bold uppercase tracking-wider mb-1 block">Pagar</span>
@@ -253,9 +253,9 @@
                 </div>
 
                 <!-- Foto 5 -->
-                <div class="slide-card bg-white rounded-xl border border-gray-200 overflow-hidden shadow-sm hover:shadow-md transition duration-300">
-                    <div class="h-64 bg-gray-200 overflow-hidden relative group">
-                        <img src="foto5.jpg" alt="Konstruksi Baja" class="object-cover w-full h-full group-hover:scale-110 transition duration-500">
+                <div class="slide-card bg-white rounded-xl border border-gray-200 overflow-hidden shadow-md">
+                    <div class="h-64 bg-gray-200 overflow-hidden relative">
+                        <img src="foto5.jpg" alt="Konstruksi Baja" class="object-cover w-full h-full">
                     </div>
                     <div class="p-5">
                         <span class="text-accent text-xs font-bold uppercase tracking-wider mb-1 block">Konstruksi</span>
@@ -264,9 +264,9 @@
                 </div>
 
                 <!-- Foto 6 -->
-                <div class="slide-card bg-white rounded-xl border border-gray-200 overflow-hidden shadow-sm hover:shadow-md transition duration-300">
-                    <div class="h-64 bg-gray-200 overflow-hidden relative group">
-                        <img src="foto6.jpg" alt="Pagar Ornamen Bintang" class="object-cover w-full h-full group-hover:scale-110 transition duration-500">
+                <div class="slide-card bg-white rounded-xl border border-gray-200 overflow-hidden shadow-md">
+                    <div class="h-64 bg-gray-200 overflow-hidden relative">
+                        <img src="foto6.jpg" alt="Pagar Motif Bintang" class="object-cover w-full h-full">
                     </div>
                     <div class="p-5">
                         <span class="text-accent text-xs font-bold uppercase tracking-wider mb-1 block">Pagar</span>
@@ -275,9 +275,9 @@
                 </div>
 
                 <!-- Foto 7 -->
-                <div class="slide-card bg-white rounded-xl border border-gray-200 overflow-hidden shadow-sm hover:shadow-md transition duration-300">
-                    <div class="h-64 bg-gray-200 overflow-hidden relative group">
-                        <img src="foto7.jpg" alt="Pagar Besi" class="object-cover w-full h-full group-hover:scale-110 transition duration-500">
+                <div class="slide-card bg-white rounded-xl border border-gray-200 overflow-hidden shadow-md">
+                    <div class="h-64 bg-gray-200 overflow-hidden relative">
+                        <img src="foto7.jpg" alt="Pagar Besi Hollow" class="object-cover w-full h-full">
                     </div>
                     <div class="p-5">
                         <span class="text-accent text-xs font-bold uppercase tracking-wider mb-1 block">Pagar</span>
@@ -286,9 +286,9 @@
                 </div>
 
                 <!-- Foto 8 -->
-                <div class="slide-card bg-white rounded-xl border border-gray-200 overflow-hidden shadow-sm hover:shadow-md transition duration-300">
-                    <div class="h-64 bg-gray-200 overflow-hidden relative group">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/8/8a/Albert_Eyth%2C_Iron_Fence%2C_c._1937%2C_NGA_23856.jpg" alt="Pagar Besi Minimalis" class="object-cover w-full h-full group-hover:scale-110 transition duration-500">
+                <div class="slide-card bg-white rounded-xl border border-gray-200 overflow-hidden shadow-md">
+                    <div class="h-64 bg-gray-200 overflow-hidden relative">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/8/8a/Albert_Eyth%2C_Iron_Fence%2C_c._1937%2C_NGA_23856.jpg" alt="Pagar Besi Minimalis" class="object-cover w-full h-full">
                     </div>
                     <div class="p-5">
                         <span class="text-accent text-xs font-bold uppercase tracking-wider mb-1 block">Pagar</span>
@@ -297,9 +297,9 @@
                 </div>
 
                 <!-- Foto 9 -->
-                <div class="slide-card bg-white rounded-xl border border-gray-200 overflow-hidden shadow-sm hover:shadow-md transition duration-300">
-                    <div class="h-64 bg-gray-200 overflow-hidden relative group">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/d/d5/Florence_Huston%2C_Iron_Fence%2C_c._1936%2C_NGA_23776.jpg" alt="Pagar Besi Geometris" class="object-cover w-full h-full group-hover:scale-110 transition duration-500">
+                <div class="slide-card bg-white rounded-xl border border-gray-200 overflow-hidden shadow-md">
+                    <div class="h-64 bg-gray-200 overflow-hidden relative">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/d/d5/Florence_Huston%2C_Iron_Fence%2C_c._1936%2C_NGA_23776.jpg" alt="Pagar Besi Geometris" class="object-cover w-full h-full">
                     </div>
                     <div class="p-5">
                         <span class="text-accent text-xs font-bold uppercase tracking-wider mb-1 block">Pagar</span>
@@ -308,9 +308,9 @@
                 </div>
 
                 <!-- Foto 10 -->
-                <div class="slide-card bg-white rounded-xl border border-gray-200 overflow-hidden shadow-sm hover:shadow-md transition duration-300">
-                    <div class="h-64 bg-gray-200 overflow-hidden relative group">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/8/8e/Florence_Huston%2C_Iron_Fence%2C_c._1936%2C_NGA_23978.jpg" alt="Pagar Besi Industrial" class="object-cover w-full h-full group-hover:scale-110 transition duration-500">
+                <div class="slide-card bg-white rounded-xl border border-gray-200 overflow-hidden shadow-md">
+                    <div class="h-64 bg-gray-200 overflow-hidden relative">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/8/8e/Florence_Huston%2C_Iron_Fence%2C_c._1936%2C_NGA_23978.jpg" alt="Pagar Besi Industrial" class="object-cover w-full h-full">
                     </div>
                     <div class="p-5">
                         <span class="text-accent text-xs font-bold uppercase tracking-wider mb-1 block">Pagar</span>
@@ -320,6 +320,68 @@
             </div>
         </div>
     </section>
+
+    <!-- Script JavaScript untuk Mengatur Efek Blur Bertingkat Secara Real-time saat digeser -->
+    <script>
+        const slider = document.getElementById('sliderContainer');
+        const cards = slider.querySelectorAll('.slide-card');
+
+        function updateCardEffects() {
+            const sliderRect = slider.getBoundingClientRect();
+            const sliderCenter = sliderRect.left + sliderRect.width / 2;
+
+            cards.forEach(card => {
+                const cardRect = card.getBoundingClientRect();
+                const cardCenter = cardRect.left + cardRect.width / 2;
+                const distance = Math.abs(sliderCenter - cardCenter);
+                
+                // Hitung tingkat keburaman (blur) dan skala berdasarkan jarak dari titik tengah layar slider
+                // Kartu di tengah (jarak 0) = blur 0 (sangat tajam & jelas)
+                let blurAmount = distance / 90; 
+                if (blurAmount > 6) blurAmount = 6; // Maksimal tingkat blur untuk kartu paling belakang
+
+                let scale = 1 - (distance / 1200);
+                if (scale < 0.85) scale = 0.85;
+
+                let opacity = 1 - (distance / 900);
+                if (opacity < 0.3) opacity = 0.3;
+
+                card.style.filter = `blur(${blurAmount}px)`;
+                card.style.transform = `scale(${scale})`;
+                card.style.opacity = opacity;
+            });
+        }
+
+        slider.addEventListener('scroll', updateCardEffects);
+        window.addEventListener('resize', updateCardEffects);
+        window.addEventListener('load', updateCardEffects);
+        
+        // Fitur tambahan agar bisa didrag pakai mouse di PC
+        let isDown = false;
+        let startX, scrollLeft;
+
+        slider.addEventListener('mousedown', (e) => {
+            isDown = true;
+            slider.style.cursor = 'grabbing';
+            startX = e.pageX - slider.offsetLeft;
+            scrollLeft = slider.scrollLeft;
+        });
+        slider.addEventListener('mouseleave', () => {
+            isDown = false;
+            slider.style.cursor = 'grab';
+        });
+        slider.addEventListener('mouseup', () => {
+            isDown = false;
+            slider.style.cursor = 'grab';
+        });
+        slider.addEventListener('mousemove', (e) => {
+            if(!isDown) return;
+            e.preventDefault();
+            const x = e.pageX - slider.offsetLeft;
+            const walk = (x - startX) * 2;
+            slider.scrollLeft = scrollLeft - walk;
+        });
+    </script>
 
     <!-- Brosur / CTA Section -->
     <section class="py-20 bg-gray-50 px-4 border-t border-gray-200">
